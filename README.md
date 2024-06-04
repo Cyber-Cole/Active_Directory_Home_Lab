@@ -2,7 +2,7 @@
 
 
 <h2>Description</h2>
-I created an Active Directory home lab using Windows Server 2019 to create a domain controller, and then I used a PowerShell script to add 1000 users to the domain. I then created a client with Windows 10 and joined it to the Active Directory domain.
+I created an Active Directory home lab using Windows Server 2019 to create a domain controller, and then I used a PowerShell script to add 1000 users to the domain. I then created a client with Windows 10 Pro and joined it to the Active Directory domain.
 <br />
 
 
@@ -25,7 +25,7 @@ Name Domain Controller and Select Windows Version: <br/>
 <br />
 </p>
 <p>
-  I used Oracle VirtualBox to create a new virtual machine (VM) that would be the domain controller (DC). I named the virtual machine "DC" and then set the operating system version as "Other Windows (64-bit) since the domain controller used Windows Server 2019.
+  I used Oracle VirtualBox to create a new virtual machine (VM) that would be the domain controller (DC). I named the virtual machine "DC" and then set the operating system version as "Other Windows (64-bit)" since the domain controller used Windows Server 2019.
 </p>
 <p align="center">
 Allocate DC VM Hardware Resources:  <br/>
@@ -173,151 +173,235 @@ New User Password:  <br/>
 </p>
 <p>
   After entering the information for the new user, I created the password for the new user account. 
+</p>
+<p align="center">
+Add New Admin User to Domain Admins: <br/>
+<img src="https://i.imgur.com/hGPiXQd.jpeg" height="90%" width="90%" alt="Add New Admin User to _ADMINS OU"/>
+<br />
+<br />
+</p>
+<p>
+  After adding the user to the _ADMINS OU, I then added the user to Domain Admins to make them an administrator. 
+</p>
+<p align="center">
+Sign in to Admin Account:  <br/>
+<img src="https://i.imgur.com/1xU1Fhq.jpeg" height="90%" width="90%" alt="Sign in Admin"/>
+<br />
+<br />
+</p>
+<p>
+  I signed in to the newly created admin account to verify it worked properly.
+</p>
 
 
 
+<h2>Routing and Remote Access Service walk-through:</h2>
+
+
+<p align="center">  
+Install Remote Access: <br/>
+<img src="https://i.imgur.com/D9rCo0C.jpeg" height="90%" width="90%" alt="Install Remote Access"/>
+<br />
+<br />
+<img src="https://i.imgur.com/ZQshbhS.jpeg" height="90%" width="90%" alt="Install routing"/>
+<br />
+<br />
+</p>
+<p>
+  After signing in to the newly created admin account, I used the "Add roles and features" option in Server Manager to add Remote Access. This is how internal clients will connect to the internal Ethernet adapter of the DC so that the DC can then allow Internet connections for internal clients. 
+</p>
+<p align="center">
+Configure Routing and Remote Access:  <br/>
+<img src="https://i.imgur.com/HnLKlyB.jpeg" height="90%" width="90%" alt="Configure Routing and Remote Access"/>
+<br />
+<br />
+<img src="https://i.imgur.com/g434Qqf.jpeg" height="90%" width="90%" alt="Configure Routing and Remote Access 2"/>
+<br />
+<br />
+<img src="https://i.imgur.com/OjTg7BK.jpeg" height="90%" width="90%" alt="Select NAT"/>
+<br />
+<br />
+<img src="https://i.imgur.com/Vk8Y9Vz.jpeg" height="90%" width="90%" alt="Select External NIC for NAT"/>
+<br />
+<br />
+</p>
+<p>
+  After installing the Remote Access feature, I then configured Routing and Remote Access for the DC. To do this, I selected "Routing and Remote Access" from the Tools menu in Server Manager. Next I right-clicked the DC and selected "Configure and Enable Routing and Remote Access." I then selected NAT service and assigned it to the external Ethernet adapter. 
+</p>
+
+
+<h2>DHCP Service walk-through:</h2>
 
 
 <p align="center">
-Launch the utility: <br/>
-<img src="https://i.imgur.com/62TgaWL.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Install DHCP Service:  <br/>
+<img src="https://i.imgur.com/GXecHS6.jpeg" height="90%" width="90%" alt="Install DHCP"/>
 <br />
 <br />
-Select the disk:  <br/>
-<img src="https://i.imgur.com/tcTyMUE.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Enter the number of passes: <br/>
-<img src="https://i.imgur.com/nCIbXbg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Confirm your selection:  <br/>
-<img src="https://i.imgur.com/cdFHBiU.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Wait for process to complete (may take some time):  <br/>
-<img src="https://i.imgur.com/JL945Ga.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Sanitization complete:  <br/>
-<img src="https://i.imgur.com/K71yaM2.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Observe the wiped disk:  <br/>
-<img src="https://i.imgur.com/AeZkvFQ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+  I selected "Add roles and features" to install the DHCP service to the DC.
 </p>
 <p align="center">
-Launch the utility: <br/>
-<img src="https://i.imgur.com/62TgaWL.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Launch DHCP Tool:  <br/>
+<img src="https://i.imgur.com/lBJXVZ0.jpeg" height="90%" width="90%" alt="Launch DHCP"/>
 <br />
 <br />
-Select the disk:  <br/>
-<img src="https://i.imgur.com/tcTyMUE.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Enter the number of passes: <br/>
-<img src="https://i.imgur.com/nCIbXbg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Confirm your selection:  <br/>
-<img src="https://i.imgur.com/cdFHBiU.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Wait for process to complete (may take some time):  <br/>
-<img src="https://i.imgur.com/JL945Ga.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Sanitization complete:  <br/>
-<img src="https://i.imgur.com/K71yaM2.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Observe the wiped disk:  <br/>
-<img src="https://i.imgur.com/AeZkvFQ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+  Next I began configuring the DHCP service by launching it from the Tools menu in Server Manager.
 </p>
 <p align="center">
-Launch the utility: <br/>
-<img src="https://i.imgur.com/62TgaWL.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Create and Name New DHCP Scope: <br/>
+<img src="https://i.imgur.com/9sK1UGR.jpeg" height="90%" width="90%" alt="Name DHCP Scope"/>
 <br />
 <br />
-Select the disk:  <br/>
-<img src="https://i.imgur.com/tcTyMUE.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Enter the number of passes: <br/>
-<img src="https://i.imgur.com/nCIbXbg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Confirm your selection:  <br/>
-<img src="https://i.imgur.com/cdFHBiU.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Wait for process to complete (may take some time):  <br/>
-<img src="https://i.imgur.com/JL945Ga.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Sanitization complete:  <br/>
-<img src="https://i.imgur.com/K71yaM2.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Observe the wiped disk:  <br/>
-<img src="https://i.imgur.com/AeZkvFQ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+  I created a new IPv4 scope and named it "172.16.0.100-200."
 </p>
 <p align="center">
-Launch the utility: <br/>
-<img src="https://i.imgur.com/62TgaWL.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Define DHCP Scope:  <br/>
+<img src="https://i.imgur.com/Qu6jSFT.jpeg" height="90%" width="90%" alt="Define DHCP Scope"/>
 <br />
 <br />
-Select the disk:  <br/>
-<img src="https://i.imgur.com/tcTyMUE.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Enter the number of passes: <br/>
-<img src="https://i.imgur.com/nCIbXbg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Confirm your selection:  <br/>
-<img src="https://i.imgur.com/cdFHBiU.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Wait for process to complete (may take some time):  <br/>
-<img src="https://i.imgur.com/JL945Ga.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Sanitization complete:  <br/>
-<img src="https://i.imgur.com/K71yaM2.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Observe the wiped disk:  <br/>
-<img src="https://i.imgur.com/AeZkvFQ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+  I then assigned the IP address range of 172.16.0.100-200 to the DHCP scope, as well as assigning a 24 bit subnet mask.
 </p>
 <p align="center">
-Launch the utility: <br/>
-<img src="https://i.imgur.com/62TgaWL.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Add Router for DHCP: <br/>
+<img src="https://i.imgur.com/CG18mcO.jpeg" height="90%" width="90%" alt="Add Router for DHCP"/>
 <br />
 <br />
-Select the disk:  <br/>
-<img src="https://i.imgur.com/tcTyMUE.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Enter the number of passes: <br/>
-<img src="https://i.imgur.com/nCIbXbg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Confirm your selection:  <br/>
-<img src="https://i.imgur.com/cdFHBiU.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Wait for process to complete (may take some time):  <br/>
-<img src="https://i.imgur.com/JL945Ga.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Sanitization complete:  <br/>
-<img src="https://i.imgur.com/K71yaM2.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Observe the wiped disk:  <br/>
-<img src="https://i.imgur.com/AeZkvFQ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
+<p>
+  Next, I assigned the internal Ethernet adapater of the DC as the router (default gateway) for the DHCP service. 
+</p>
+<p align="center">
+Add Domain Name and DNS Servers to DHCP:  <br/>
+<img src="https://i.imgur.com/uQLt5CU.jpeg" height="90%" width="90%" alt="Add Domain Name and DNS to DHCP"/>
+<br />
+<br />
+</p>
+<p>
+  Finally, I assigned the domain name and DNS server to be used by the DHCP service. 
+</p>
+
+
+<h2>Add 1,000 Domain Users walk-through:</h2>
+
+
+<p align="center">
+Text File With Names:  <br/>
+<img src="https://i.imgur.com/lPG3QtP.jpeg" height="90%" width="90%" alt="Name File"/>
+<br />
+<br />
+</p>
+<p>
+  To add 1,000 domain users to my Active Directory environment, I used a text file containing 1,000 randomly generated names. 
+</p>
+<p align="center">
+Run Windows PowerShell ISE as Administrator:  <br/>
+<img src="https://i.imgur.com/Xdc1s4P.jpeg" height="90%" width="90%" alt="PowerShell ISE Admin"/>
+<br />
+<br />
+</p>
+<p>
+  I launched Windows PowerShell ISE as Administrator to use for running my script that would add 1,000 domain users from the name file to my Active Directory environment. 
+</p>
+<p align="center">
+Load Scipt into PowerShell ISE:  <br/>
+<img src="https://i.imgur.com/PZTWu5T.jpeg" height="90%" width="90%" alt="Load Script"/>
+<br />
+<br />
+</p>
+<p align="center">
+Change File Directory: <br/>
+<img src="https://i.imgur.com/TWNdt1h.jpeg" height="90%" width="90%" alt="Change File Directory"/>
+<br />
+<br />
+<img src="https://i.imgur.com/JbVZVyV.jpeg" height="90%" width="90%" alt="List Files"/>
+<br />
+<br />
+</p>
+<p>
+  After loading in the script to be used, I changed the file directly to where the text file containing the 1,000 random names was located. 
+</p>
+<p align="center">
+Execute Script:  <br/>
+<img src="https://i.imgur.com/5uBt64z.jpeg" height="90%" width="90%" alt="Execute Script"/>
+<br />
+<br />
+</p>
+<p align="center">
+Users Added to Active Directory Environment: <br/>
+<img src="https://i.imgur.com/uadCLU6.jpeg" height="90%" width="90%" alt="Users Added"/>
+<br />
+<br />
+</p>
+
+
+<h2>Client VM walk-through:</h2>
+
+
+<p align="center">
+Client VM Created:  <br/>
+<img src="https://i.imgur.com/sZaf7Jr.jpeg" height="90%" width="90%" alt="Client VM Created"/>
+<br />
+<br />
+</p>
+<p>
+  I created another VM that was used as the client PC to connect to the Active Directory domain and allow the previously created users to access the domain. I set the network adapter for this VM to be internal only, so it could not connect to the Internet directly. Instead, the client PC would have to use the DC to connect to the Internet.
+</p>
+<p align="center">
+Test Internet Connectivity for Client:  <br/>
+<img src="https://i.imgur.com/WfHE41R.jpeg" height="90%" width="90%" alt="Internet Connectivity Client"/>
+<br />
+<br />
+</p>
+<p>
+  To ensure Routing and Remote Access was properly working on the DC, I opened a command prompt on the client PC and pinged google.com. I also checked the network configuration of the client PC to ensure the DHCP service of the DC was properly working. 
+</p>
+<p align="center">
+Change Client Name and Join Domain:  <br/>
+<img src="https://i.imgur.com/c58SFfG.jpeg" height="90%" width="90%" alt="Change Client Name"/>
+<br />
+<br />
+</p>
+<p>
+  I changed the name of the client PC so it could easily be identified. I then joined the client PC to the "mydomain.com" domain.
+</p>
+<p align="center">
+Verify Client IP Address Lease:  <br/>
+<img src="https://i.imgur.com/XMTkhIb.jpeg" height="90%" width="90%" alt="Client IP Address Lease"/>
+<br />
+<br />
+</p>
+<p>
+  Using the DC, I verified that the client PC was properly assigned an IP address lease.
+</p>
+<p align="center">
+Sign In as Domain User (dwillmore): <br/>
+<img src="https://i.imgur.com/Febi3Hd.jpeg" height="90%" width="90%" alt="dwillmore"/>
+<br />
+<br />
+</p>
+<p>
+  On the client PC I logged in to one of the user accounts created by the PowerShell script to verify Active Directory Services were properly working. 
+</p>
+<p align="center">
+Verify Client Appears on DC:  <br/>
+<img src="https://i.imgur.com/7JvoJEt.jpeg" height="90%" width="90%" alt="Client on DC"/>
+<br />
+<br />
+</p>
+<p>
+  Finally, I verified the client PC properly appears as a Computer on the DC.
+</p>
+
+
+
 
 <!--
  ```diff
