@@ -25,13 +25,18 @@ Name Domain Controller and Select Windows Version: <br/>
 <br />
 </p>
 <p>
-  I used Oracle VirtualBox to create a new virtual machine that would be the domain controller. I named the virtual machine "DC" and then set the operating system version as "Other Windows (64-bit) since the domain controller used Windows Server 2019.
+  I used Oracle VirtualBox to create a new virtual machine (VM) that would be the domain controller (DC). I named the virtual machine "DC" and then set the operating system version as "Other Windows (64-bit) since the domain controller used Windows Server 2019.
 </p>
 <p align="center">
-Select the disk:  <br/>
-<img src="https://i.imgur.com/tcTyMUE.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Allocate DC VM Hardware Resources:  <br/>
+<img src="https://i.imgur.com/TeQur8M.jpeg" height="90%" width="90%" alt="DC VM Hardware"/>
 <br />
 <br />
+</p>
+<p>
+  On the next menu screen I allocated hardware resources for the DC VM to use. 
+</p>
+<p align="center">
 Enter the number of passes: <br/>
 <img src="https://i.imgur.com/nCIbXbg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
