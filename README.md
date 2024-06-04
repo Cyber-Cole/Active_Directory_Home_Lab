@@ -120,35 +120,64 @@ Add a New Forest: <br/>
 <p>
   In the menu that appeared, I selected "Add a new forest" and then assiged "mydomain.com" as the root domain name. I then proceeded through the following menus and then installed the forest to the server.
 </p>
-
-
-
-
-
 <p align="center">
-Select the disk:  <br/>
-<img src="https://i.imgur.com/tcTyMUE.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Launch Active Directory Users and Computers:  <br/>
+<img src="https://i.imgur.com/iDmallm.jpeg" height="90%" width="90%" alt="AD Users and Computers"/>
 <br />
 <br />
-Enter the number of passes: <br/>
-<img src="https://i.imgur.com/nCIbXbg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Confirm your selection:  <br/>
-<img src="https://i.imgur.com/cdFHBiU.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Wait for process to complete (may take some time):  <br/>
-<img src="https://i.imgur.com/JL945Ga.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Sanitization complete:  <br/>
-<img src="https://i.imgur.com/K71yaM2.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Observe the wiped disk:  <br/>
-<img src="https://i.imgur.com/AeZkvFQ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
+<p>
+  Next I launched the Active Directory Users and Computers tool from the Windows start menu to create a new organizational unit (OU).
+</p>
+<p align="center">
+Create New Oranizational Unit: <br/>
+<img src="https://i.imgur.com/qMSxdym.jpeg" height="90%" width="90%" alt="Create OU"/>
+<br />
+<br />
+</p>
+<p>
+  In the Active Directory Users and Computers tool I right-clicked "mydomain.com," selected "New," and then selected "Organizational Unit."
+</p>
+<p align="center">
+Assign Name to OU:  <br/>
+<img src="https://i.imgur.com/yQ7yxUJ.jpeg" height="90%" width="90%" alt="Name OU"/>
+<br />
+<br />
+</p>
+<p>
+  I then named the OU "_ADMINS."
+</p>
+<p align="center">
+Create New User in _ADMINS OU:  <br/>
+<img src="https://i.imgur.com/1cC9fSr.jpeg" height="90%" width="90%" alt="New User in _ADMINS OU"/>
+<br />
+<br />
+</p>
+<p>
+  After I created the _ADMINS OU, I then created a new admin user in the OU. To do this, I right-clicked the _ADMINS OU, selected "New," and then selected "User."
+</p>
+<p align="center">
+New User Information:  <br/>
+<img src="https://i.imgur.com/fzZm2Mo.jpeg" height="90%" width="90%" alt="New User Information"/>
+<br />
+<br />
+</p>
+<p>
+  In the next window I filled in the information to create the new user. 
+</p>
+<p align="center">
+New User Password:  <br/>
+<img src="https://i.imgur.com/0keZKWo.jpeg" height="90%" width="90%" alt="New User Password"/>
+<br />
+<br />
+</p>
+<p>
+  After entering the information for the new user, I created the password for the new user account. 
+
+
+
+
+
 <p align="center">
 Launch the utility: <br/>
 <img src="https://i.imgur.com/62TgaWL.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
